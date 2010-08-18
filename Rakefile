@@ -5,13 +5,12 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "java_autotest"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
+    gem.summary = %Q{Java AutoTest}
+    gem.description = %Q{Java AutoTest}
     gem.email = "rodolfoliviero@gmail.com"
     gem.homepage = "http://github.com/rodolfoliviero/java_autotest"
     gem.authors = ["rodolfoliviero"]
     gem.add_development_dependency "rspec", ">= 1.2.9"
-    # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
   Jeweler::GemcutterTasks.new
 rescue LoadError
@@ -25,8 +24,8 @@ Spec::Rake::SpecTask.new(:spec) do |spec|
 end
 
 Spec::Rake::SpecTask.new(:rcov) do |spec|
-  spec.libs << 'lib' << 'spec'
-  spec.pattern = 'spec/**/*_spec.rb'
+  spec.spec_files = FileList['spec/**/*_spec.rb']
+  spec.rcov_opts = ['--exclude', 'spec/*,gems/*']
   spec.rcov = true
 end
 

@@ -1,6 +1,15 @@
 = java_autotest
 
-Description goes here.
+Instant feedback.
+
+= How its works
+
+* Find all java files inside src folder.
+* Run all tests.
+* Wait for changes.
+* Run modified test.
+* All green? run all testes
+
 
 == Note on Patches/Pull Requests
  
