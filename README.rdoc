@@ -10,6 +10,14 @@ Instant feedback.
 * Run modified test.
 * All green? run all testes
 
+== Dependencies
+Ensures that you already have installed:
+
+- Java 
+- Maven 2
+
+== Where next?
+- Ivy, gralde and ant suppport
 
 == Note on Patches/Pull Requests
  
