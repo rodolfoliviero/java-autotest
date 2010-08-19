@@ -4,7 +4,7 @@ class AutoTest
 	def initialize
 		@data = Time.new
 		@files =  File.find_java_files
-		#run_all_tests
+		run_all_tests
 	end	
 	
 	def listen
