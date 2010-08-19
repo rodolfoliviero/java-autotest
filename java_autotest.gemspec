@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new("> 1.3.1") if s.respond_to? :required_rubygems_version=
   s.authors = ["rodolfoliviero"]
-  s.date = %q{2010-08-18}
+  s.date = %q{2010-08-19}
   s.default_executable = %q{java_autotest}
   s.description = %q{Java AutoTest}
   s.email = %q{rodolfoliviero@gmail.com}
@@ -21,6 +21,8 @@ Gem::Specification.new do |s|
   s.files = [
     ".document",
      ".gitignore",
+     "Gemfile",
+     "Gemfile.lock",
      "LICENSE",
      "README.rdoc",
      "Rakefile",
@@ -30,8 +32,12 @@ Gem::Specification.new do |s|
      "lib/file.rb",
      "lib/java_autotest.rb",
      "lib/java_autotest/autotest.rb",
+     "spec/file_spec.rb",
+     "spec/java_autotest/autotest_spec.rb",
      "spec/spec.opts",
-     "spec/spec_helper.rb"
+     "spec/spec_helper.rb",
+     "spec/src/main/java/Impl.java",
+     "spec/src/test/java/ImplTest.java"
   ]
   s.homepage = %q{http://github.com/rodolfoliviero/java_autotest}
   s.rdoc_options = ["--charset=UTF-8"]
