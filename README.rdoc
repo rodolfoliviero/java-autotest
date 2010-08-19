@@ -1,6 +1,9 @@
 = java_autotest
 
-Instant feedback.
+Instant feedback for yours tests.
+
+== Installation
+ gem install java_autotest --pre
 
 = How its works
 
