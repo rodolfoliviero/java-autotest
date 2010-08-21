@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{java-autotest}
-  s.version = "0.0.1.beta1"
+  s.version = "0.0.1.beta2"
 
   s.required_rubygems_version = Gem::Requirement.new("> 1.3.1") if s.respond_to? :required_rubygems_version=
   s.authors = ["rodolfoliviero"]
@@ -28,7 +28,7 @@ Gem::Specification.new do |s|
      "Rakefile",
      "VERSION.yml",
      "bin/java-autotest",
-     "java_autotest.gemspec",
+     "java-autotest.gemspec",
      "lib/file.rb",
      "lib/java_autotest.rb",
      "lib/java_autotest/autotest.rb",
