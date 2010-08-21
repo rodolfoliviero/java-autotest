@@ -1,9 +1,9 @@
-= java_autotest
+= java-autotest
 
 Instant feedback for yours tests.
 
 == Installation
- gem install java_autotest --pre
+ gem install java-autotest --pre
 
 == Dependencies
 Ensures that you already have installed:
@@ -23,7 +23,7 @@ Ensures that you already have installed:
 At the project root folder: java-autotest
 
 == Where next?
-- Ivy, gralde and ant suppport
+- Ant, Ivy and gralde suppport.
 
 == Note on Patches/Pull Requests
  

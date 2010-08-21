@@ -4,16 +4,16 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{java_autotest}
+  s.name = %q{java-autotest}
   s.version = "0.0.1.beta1"
 
   s.required_rubygems_version = Gem::Requirement.new("> 1.3.1") if s.respond_to? :required_rubygems_version=
   s.authors = ["rodolfoliviero"]
-  s.date = %q{2010-08-19}
-  s.default_executable = %q{java_autotest}
+  s.date = %q{2010-08-21}
+  s.default_executable = %q{java-autotest}
   s.description = %q{Java AutoTest}
   s.email = %q{rodolfoliviero@gmail.com}
-  s.executables = ["java_autotest"]
+  s.executables = ["java-autotest"]
   s.extra_rdoc_files = [
     "LICENSE",
      "README.rdoc"
@@ -27,7 +27,7 @@ Gem::Specification.new do |s|
      "README.rdoc",
      "Rakefile",
      "VERSION.yml",
-     "bin/java_autotest",
+     "bin/java-autotest",
      "java_autotest.gemspec",
      "lib/file.rb",
      "lib/java_autotest.rb",
@@ -39,15 +39,15 @@ Gem::Specification.new do |s|
      "spec/src/main/java/Impl.java",
      "spec/src/test/java/ImplTest.java"
   ]
-  s.homepage = %q{http://github.com/rodolfoliviero/java_autotest}
+  s.homepage = %q{http://github.com/rodolfoliviero/java-autotest}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.7}
   s.summary = %q{Java AutoTest}
   s.test_files = [
     "spec/spec_helper.rb",
-     "spec/file_spec.rb",
-     "spec/java_autotest/autotest_spec.rb"
+     "spec/java_autotest/autotest_spec.rb",
+     "spec/file_spec.rb"
   ]
 
   if s.respond_to? :specification_version then

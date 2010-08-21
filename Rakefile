@@ -4,11 +4,11 @@ require 'rake'
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
-    gem.name = "java_autotest"
+    gem.name = "java-autotest"
     gem.summary = %Q{Java AutoTest}
     gem.description = %Q{Java AutoTest}
     gem.email = "rodolfoliviero@gmail.com"
-    gem.homepage = "http://github.com/rodolfoliviero/java_autotest"
+    gem.homepage = "http://github.com/rodolfoliviero/java-autotest"
     gem.authors = ["rodolfoliviero"]
     gem.add_development_dependency "rspec", ">= 1.2.9"
   end
