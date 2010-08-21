@@ -19,8 +19,8 @@ Ensures that you already have installed:
 * Run modified test.
 * All green? run all testes
 
-== Getting Started
-At the project root folder: java-autotest
+== Usage
+ java-autotest at the project root folder.
 
 == Where next?
 - Ant, Ivy and gralde suppport.
