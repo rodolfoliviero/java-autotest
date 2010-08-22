@@ -1,10 +1,9 @@
 class AutoTest
-	attr_accessor :data, :files
+	attr_accessor :run_at, :files
 
 	def initialize
-		@data = Time.new
-		@files =  File.find_java_files
-		run_all_tests
+		@run_at = Time.new
+		@files = File.find_java_files
 	end	
 	
 	def listen
@@ -20,8 +19,8 @@ class AutoTest
 	def run(file)
 		test_class = find_test_class file
 		puts "Running test to #{test_class}."
-		green = run_test(test_class)
-		run_all_tests if green
+		green = TestRunner.run_test(test_class)
+		TestRunner.run_all_tests if green
 		reset 
 	end
 	
@@ -30,15 +29,7 @@ class AutoTest
 		return file.split("/").last if file.include? "Test.java"
 	end
 	
-	def run_test(test_class)
-		system("mvn -Dtest=#{test_class} test")
-	end
-	
-	def run_all_tests
-		system("mvn test")
-	end
-	
 	def reset
-		@data = Time.new
+		@run_at = Time.new
 	end
 end

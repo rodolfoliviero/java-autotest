@@ -1,9 +1,11 @@
 require File.dirname(__FILE__) + '/../lib/java_autotest/autotest'
-require File.dirname(__FILE__) + '/../lib/file'
+require File.dirname(__FILE__) + '/../lib/java_autotest/file'
+require File.dirname(__FILE__) + '/../lib/java_autotest/test_runner'
 
 module JavaAutoTest
 	class Main
 		def self.execute
+			TestRunner.run_all_tests
 			autotest = AutoTest.new
 			loop do
 	      		begin
