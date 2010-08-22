@@ -3,7 +3,7 @@
 Instant feedback for yours tests.
 
 == Installation
- gem install java-autotest --pre
+ gem install java-autotest
 
 == Dependencies
 Ensures that you already have installed:
