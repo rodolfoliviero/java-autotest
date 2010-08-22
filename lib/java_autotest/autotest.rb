@@ -8,7 +8,7 @@ class AutoTest
 	
 	def listen
 		@files.each do |file|
-			if (File.atime(file).to_i > @data.to_i)
+			if (File.atime(file).to_i > @run_at.to_i)
 				run(file) 
 				break
 			end

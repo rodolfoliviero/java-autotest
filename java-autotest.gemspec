@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{java-autotest}
-  s.version = "0.0.1.beta2"
+  s.version = "0.0.1"
 
-  s.required_rubygems_version = Gem::Requirement.new("> 1.3.1") if s.respond_to? :required_rubygems_version=
+  s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["rodolfoliviero"]
-  s.date = %q{2010-08-21}
+  s.date = %q{2010-08-22}
   s.default_executable = %q{java-autotest}
   s.description = %q{Java AutoTest}
   s.email = %q{rodolfoliviero@gmail.com}
@@ -29,11 +29,13 @@ Gem::Specification.new do |s|
      "VERSION.yml",
      "bin/java-autotest",
      "java-autotest.gemspec",
-     "lib/file.rb",
      "lib/java_autotest.rb",
      "lib/java_autotest/autotest.rb",
-     "spec/file_spec.rb",
+     "lib/java_autotest/file.rb",
+     "lib/java_autotest/test_runner.rb",
      "spec/java_autotest/autotest_spec.rb",
+     "spec/java_autotest/file_spec.rb",
+     "spec/java_autotest/test_runner_spec.rb",
      "spec/spec.opts",
      "spec/spec_helper.rb",
      "spec/src/main/java/Impl.java",
@@ -46,8 +48,9 @@ Gem::Specification.new do |s|
   s.summary = %q{Java AutoTest}
   s.test_files = [
     "spec/spec_helper.rb",
+     "spec/java_autotest/test_runner_spec.rb",
      "spec/java_autotest/autotest_spec.rb",
-     "spec/file_spec.rb"
+     "spec/java_autotest/file_spec.rb"
   ]
 
   if s.respond_to? :specification_version then
