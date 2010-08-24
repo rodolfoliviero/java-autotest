@@ -7,3 +7,7 @@ class TestRunner
 		system("mvn test")
 	end
 end
+
+#gradle goals
+#single test => "gradle -Dtest.single=#{test_class} test"
+#all tests => "gradle test"
