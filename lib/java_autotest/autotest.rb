@@ -25,8 +25,8 @@ class AutoTest
 	end
 	
 	def find_test_class(file)
-		return file.split("/").last.split(".java").last.concat("Test.java") unless file.include? "Test.java"
-		return file.split("/").last if file.include? "Test.java"
+		return file.split("/").last.split(".java").last.concat("Test") unless file.include? "Test.java"
+		file.split("/").last.split(".").first
 	end
 	
 	def reset
