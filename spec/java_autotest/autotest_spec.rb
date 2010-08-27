@@ -35,12 +35,12 @@ describe AutoTest do
  
   it "should find test class name when class is not a test class" do
       test_class = @autotest.find_test_class(@class)
-      test_class.should == "OrderTest.java"
+      test_class.should == "OrderTest"
     end
   
   it "should find test class name when class is a test class" do
     test_class = @autotest.find_test_class("src/test/java/app/model/OrderTest.java")
-    test_class.should == "OrderTest.java"
+    test_class.should == "OrderTest"
   end
   
 end
