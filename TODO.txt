@@ -1,0 +1,2 @@
+ant, gradle and ivy support.
+growl integration.(mac only)
