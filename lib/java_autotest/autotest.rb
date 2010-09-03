@@ -19,8 +19,8 @@ class AutoTest
 	def run(file)
 		test_class = find_test_class file
 		puts "Running test to #{test_class}."
-		green = TestRunner.run_test(test_class)
-		TestRunner.run_all_tests if green
+		green = BuildTool.run_test(test_class)
+		BuildTool.run_all_tests if green
 		reset 
 	end
 	

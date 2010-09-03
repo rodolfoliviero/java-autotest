@@ -1,6 +1,5 @@
 require File.dirname(__FILE__) + '/../lib/java_autotest/autotest'
 require File.dirname(__FILE__) + '/../lib/java_autotest/file'
-require File.dirname(__FILE__) + '/../lib/java_autotest/test_runner'
 require File.dirname(__FILE__) + '/../lib/java_autotest/build_tool'
 
 module JavaAutoTest
