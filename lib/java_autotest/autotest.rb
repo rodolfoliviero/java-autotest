@@ -1,5 +1,3 @@
-
-
 class AutoTest
 	attr_accessor :run_at, :files
 
@@ -23,9 +21,25 @@ class AutoTest
 		puts "Running test to #{test_class}."
 		green = TestRunner.run_test(test_class)
 		TestRunner.run_all_tests if green
-    notify "Test Failure: #{test_class}" unless green
+		notify "Test Failure: #{test_class}" unless green
 		reset 
 	end
+
+  def notify(message)
+     title = 'Java AutoTest'
+     case RUBY_PLATFORM
+     when /darwin/
+       system "growlnotify -t '#{title}' -m '#{message}'"
+     end
+  end
+	
+	def notify(message)
+     title = 'Java AutoTest'
+     case RUBY_PLATFORM
+     when /darwin/
+       system "growlnotify -t '#{title}' -m '#{message}'"
+     end
+  end
 	
 	def notify(message)
      title = 'Java AutoTest'
