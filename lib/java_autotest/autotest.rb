@@ -33,6 +33,14 @@ class AutoTest
      end
   end
 	
+	def notify(message)
+     title = 'Java AutoTest'
+     case RUBY_PLATFORM
+     when /darwin/
+       system "growlnotify -t '#{title}' -m '#{message}'"
+     end
+  end
+	
 	def find_test_class(file)
 		return file.split("/").last.split(".java").last.concat("Test") unless file.include? "Test.java"
 		file.split("/").last.split(".").first
