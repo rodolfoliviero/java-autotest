@@ -13,7 +13,7 @@ describe AutoTest do
   	  TestRunner.stub(:run_test).and_return false
     end  
       
-    it "should reset run at date" do
+    it "should reset run_at date" do
       now = mock(Time)
       Time.stub!(:new).and_return(now)
   	  @autotest.run(@class)
