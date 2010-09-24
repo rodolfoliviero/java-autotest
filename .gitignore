@@ -3,3 +3,4 @@ rdoc
 pkg
 .bundle
 .rvmrc
+*.swp
