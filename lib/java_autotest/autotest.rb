@@ -25,22 +25,6 @@ class AutoTest
 		reset 
 	end
 
-  def notify(message)
-     title = 'Java AutoTest'
-     case RUBY_PLATFORM
-     when /darwin/
-       system "growlnotify -t '#{title}' -m '#{message}'"
-     end
-  end
-	
-	def notify(message)
-     title = 'Java AutoTest'
-     case RUBY_PLATFORM
-     when /darwin/
-       system "growlnotify -t '#{title}' -m '#{message}'"
-     end
-  end
-	
 	def notify(message)
      title = 'Java AutoTest'
      case RUBY_PLATFORM

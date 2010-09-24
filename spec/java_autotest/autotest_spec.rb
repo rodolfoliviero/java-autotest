@@ -31,6 +31,11 @@ describe AutoTest do
       @autotest.run(@class)
     end
     
+    it "should notify user when test fail" do
+      @autotest.should_receive(:notify)
+      @autotest.run(@class)
+    end
+    
   end
  
   it "should find test class name when class is not a test class" do
