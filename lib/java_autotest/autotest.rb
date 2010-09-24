@@ -21,8 +21,17 @@ class AutoTest
 		puts "Running test to #{test_class}."
 		green = TestRunner.run_test(test_class)
 		TestRunner.run_all_tests if green
+		notify "Test Failure: #{test_class}" unless green
 		reset 
 	end
+
+  def notify(message)
+     title = 'Java AutoTest'
+     case RUBY_PLATFORM
+     when /darwin/
+       system "growlnotify -t '#{title}' -m '#{message}'"
+     end
+  end
 	
 	def find_test_class(file)
 		return file.split("/").last.split(".java").last.concat("Test") unless file.include? "Test.java"
