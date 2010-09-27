@@ -5,6 +5,7 @@ describe AutoTest do
   before(:each) do
     test_runner = mock(TestRunner)
     TestRunner.stub!(:new).and_return(test_runner)
+    test_runner.should_receive(:run_all_tests)
     @autotest = AutoTest.new
     @class = "src/main/java/app/model/Order.java"
   end

@@ -4,4 +4,5 @@ require File.dirname(__FILE__) + '/../lib/java_autotest'
 
 begin
 	JavaAutoTest::Main.execute
+	rescue Interrupt
 end
