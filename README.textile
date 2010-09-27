@@ -3,7 +3,8 @@ h2. Java AutoTest
 Instant feedback for yours tests.
 
 h2. Installation
- gem install java-autotest
+
+gem install java-autotest
 
 h2. Dependencies
 
@@ -30,7 +31,8 @@ h2. How its works
 * All green? run all testes
 
 h2. Usage
- java-autotest at the project root folder.
+
+java-autotest at the project root folder.
 
 h2. Note on Patches/Pull Requests
  
