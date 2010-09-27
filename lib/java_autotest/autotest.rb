@@ -1,6 +1,8 @@
 class AutoTest
 	attr_accessor :run_at, :files
 
+  ICON = File.expand_path(File.join(File.dirname(__FILE__), '..', '..', 'img', 'java_icon.png'))
+  
 	def initialize
 		@run_at = Time.new
 		@files = File.find_java_files
@@ -29,7 +31,7 @@ class AutoTest
      title = 'Java AutoTest'
      case RUBY_PLATFORM
      when /darwin/
-       system "growlnotify -t '#{title}' -m '#{message}'"
+       system "growlnotify -t '#{title}' -m '#{message}' --image #{ICON}"
      end
   end
 	
