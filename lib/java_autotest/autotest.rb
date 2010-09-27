@@ -6,6 +6,7 @@ class AutoTest
     @run_at = Time.new
     @files = File.find_java_files
     @test_runner = TestRunner.new
+    @test_runner.run_all_tests
   end	
 
   def listen
@@ -23,7 +24,7 @@ class AutoTest
     puts "Running test to #{test_class}."
     green = @test_runner.run_test(test_class)
     @test_runner.run_all_tests if green
-		notify "Test Failure: #{test_class}" unless green
+    notify "Test Failure: #{test_class}" unless green
     reset 
   end
 
@@ -36,12 +37,12 @@ class AutoTest
     @run_at = Time.new
   end
 
-	def notify(message)
-     title = 'Java AutoTest'
-     case RUBY_PLATFORM
-     when /darwin/
-       system "growlnotify -t '#{title}' -m '#{message}' --image #{ICON}"
-     end
+  def notify(message)
+    title = 'Java AutoTest'
+    case RUBY_PLATFORM
+    when /darwin/
+      system "growlnotify -t '#{title}' -m '#{message}' --image #{ICON}"
+    end
   end
-	
+
 end
