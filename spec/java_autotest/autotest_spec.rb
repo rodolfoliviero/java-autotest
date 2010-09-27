@@ -38,7 +38,7 @@ describe AutoTest do
       @autotest.should_receive(:notify)
       @autotest.run(@class)
     end
-    
+
   end
 
   it "should find test class name when class is not a test class" do
@@ -49,6 +49,24 @@ describe AutoTest do
   it "should find test class name when class is a test class" do
     test_class = @autotest.find_test_class("src/test/java/app/model/OrderTest.java")
     test_class.should == "OrderTest"
+  end
+
+  context "notify" do
+    it "on linux" do
+      RUBY_PLATFORM = "linux"
+      message = "hello linux"
+      command = "notify-send '#{AutoTest::Title}' '#{message}' --icon #{AutoTest::ICON}"
+      @autotest.should_receive(:system).with(command)
+      @autotest.notify(message)
+    end
+
+    it "on mac os x" do
+      RUBY_PLATFORM = "darwin"
+      message = "hello mac os x"
+      command = "growlnotify -t '#{AutoTest::Title}' -m '#{message}' --image #{AutoTest::ICON}"
+      @autotest.should_receive(:system).with(command)
+      @autotest.notify(message)
+    end
   end
 
 end
