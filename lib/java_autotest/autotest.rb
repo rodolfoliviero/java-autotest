@@ -1,9 +1,11 @@
 class AutoTest
-  attr_accessor :run_at, :files
+  attr_accessor :run_at, :files, :test_runner
+  ICON = File.expand_path(File.join(File.dirname(__FILE__), '..', '..', 'img', 'java_icon.png'))
 
   def initialize
     @run_at = Time.new
     @files = File.find_java_files
+    @test_runner = TestRunner.new
   end	
 
   def listen
@@ -19,8 +21,9 @@ class AutoTest
   def run(file)
     test_class = find_test_class file
     puts "Running test to #{test_class}."
-    green = BuildTool.run_test(test_class)
-    BuildTool.run_all_tests if green
+    green = @test_runner.run_test(test_class)
+    @test_runner.run_all_tests if green
+		notify "Test Failure: #{test_class}" unless green
     reset 
   end
 
@@ -32,4 +35,13 @@ class AutoTest
   def reset
     @run_at = Time.new
   end
+
+	def notify(message)
+     title = 'Java AutoTest'
+     case RUBY_PLATFORM
+     when /darwin/
+       system "growlnotify -t '#{title}' -m '#{message}' --image #{ICON}"
+     end
+  end
+	
 end

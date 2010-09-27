@@ -3,6 +3,8 @@ require File.expand_path(File.dirname(__FILE__) + "/../spec_helper")
 describe AutoTest do
 
   before(:each) do
+    test_runner = mock(TestRunner)
+    TestRunner.stub!(:new).and_return(test_runner)
     @autotest = AutoTest.new
     @class = "src/main/java/app/model/Order.java"
   end
@@ -10,7 +12,7 @@ describe AutoTest do
   context "run test" do
 
     before(:each) do
-      BuildTool.stub(:run_test).and_return false
+      @autotest.test_runner.stub!(:run_test).and_return false
     end  
 
     it "should reset run_at after run" do
@@ -21,16 +23,21 @@ describe AutoTest do
     end
 
     it "cannot run all test if test fail" do
-      BuildTool.should_not_receive(:run_all_tests)
+      @autotest.test_runner.should_not_receive(:run_all_tests)
       @autotest.run(@class)
     end
 
     it "should run all test if test pass" do
-      BuildTool.stub(:run_test).and_return true
-      BuildTool.should_receive(:run_all_tests)
+      @autotest.test_runner.stub!(:run_test).and_return true
+      @autotest.test_runner.should_receive(:run_all_tests)
       @autotest.run(@class)
     end
 
+    it "should notify user when test fail" do
+      @autotest.should_receive(:notify)
+      @autotest.run(@class)
+    end
+    
   end
 
   it "should find test class name when class is not a test class" do
