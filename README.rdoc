@@ -11,6 +11,11 @@ Ensures that you already have installed:
 - Java 
 - Maven 2
 
+On OS X:
+	
+ * "Growl":http://growl.info	 	
+ * "growlnotify":http://growl.info/extras.php#growlnotify
+
 == How its works
 
 * Find all java files inside src folder.
