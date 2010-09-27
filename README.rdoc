@@ -12,9 +12,9 @@ Ensures that you already have installed:
 - Maven 2
 
 On OS X:
-	
-* "Growl"=http://growl.info	 	
-* "growlnotify"=http://growl.info/extras.php#growlnotify
+
+* <a href="http://growl.info" target="_blank">Growl</a>
+* <a href="http://growl.info/extras.php#growlnotify" target="_blank">growlnotify</a>
 
 == How its works
 
