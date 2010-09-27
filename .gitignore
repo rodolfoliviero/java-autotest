@@ -4,3 +4,4 @@ pkg
 .bundle
 .rvmrc
 *.swp
+.DS_Store

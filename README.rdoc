@@ -11,6 +11,11 @@ Ensures that you already have installed:
 - Java 
 - Maven 2
 
+On OS X:
+
+* <a href="http://growl.info" target="_blank">Growl</a>
+* <a href="http://growl.info/extras.php#growlnotify" target="_blank">growlnotify</a>
+
 == How its works
 
 * Find all java files inside src folder.
