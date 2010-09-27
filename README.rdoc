@@ -13,8 +13,8 @@ Ensures that you already have installed:
 
 On OS X:
 	
- * "Growl":http://growl.info	 	
- * "growlnotify":http://growl.info/extras.php#growlnotify
+* "Growl":http://growl.info	 	
+* "growlnotify":http://growl.info/extras.php#growlnotify
 
 == How its works
 
