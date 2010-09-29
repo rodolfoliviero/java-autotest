@@ -18,7 +18,7 @@ describe AutoTest do
 
     it "should reset run_at after run" do
       now = mock(Time)
-      Time.stub!(:new).and_return(now)
+      Time.stub!(:new).and_return now
       @autotest.run(@class)
       @autotest.run_at.should == now
     end
@@ -34,25 +34,6 @@ describe AutoTest do
       @autotest.run(@class)
     end
 
-    it "should notify user when test fail" do
-      @autotest.should_receive(:notify)
-      @autotest.run(@class)
-    end
-    
-    it "should notify user when all test fail" do
-      @autotest.test_runner.stub!(:run_test).and_return true
-      @autotest.test_runner.should_receive(:run_all_tests).and_return false
-      @autotest.should_receive(:notify).with("Build Broken")
-      @autotest.run(@class)
-    end
-
-    it "should notify user when all test green" do
-      @autotest.test_runner.stub!(:run_test).and_return true
-      @autotest.test_runner.should_receive(:run_all_tests).and_return true
-      @autotest.should_receive(:notify).with("Build Passed")
-      @autotest.run(@class)
-    end
-
   end
 
   it "should find test class name when class is not a test class" do
@@ -64,31 +45,4 @@ describe AutoTest do
     test_class = @autotest.find_test_class("src/test/java/app/model/OrderTest.java")
     test_class.should == "OrderTest"
   end
-
-  context "notify" do
-    before(:all) do
-      @current_platform = RUBY_PLATFORM 
-    end
-    
-    after(:all) do
-      RUBY_PLATFORM = @current_platform
-    end
-    
-    it "on linux" do
-      RUBY_PLATFORM = "linux"
-      message = "hello linux"
-      command = "notify-send '#{AutoTest::Title}' '#{message}' --icon #{AutoTest::ICON}"
-      @autotest.should_receive(:system).with(command)
-      @autotest.notify(message)
-    end
-
-    it "on mac os x" do
-      RUBY_PLATFORM = "darwin"
-      message = "hello mac os x"
-      command = "growlnotify -t '#{AutoTest::Title}' -m '#{message}' --image #{AutoTest::ICON}"
-      @autotest.should_receive(:system).with(command)
-      @autotest.notify(message)
-    end
-  end
-
 end
