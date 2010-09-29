@@ -10,7 +10,7 @@ describe AutoTest do
     @class = "src/main/java/app/model/Order.java"
   end
 
-  context "run test" do
+  context "run single test" do
 
     before(:each) do
       @autotest.test_runner.stub!(:run_test).and_return false
@@ -38,6 +38,20 @@ describe AutoTest do
       @autotest.should_receive(:notify)
       @autotest.run(@class)
     end
+    
+    it "should notify user when all test fail" do
+      @autotest.test_runner.stub!(:run_test).and_return true
+      @autotest.test_runner.should_receive(:run_all_tests).and_return false
+      @autotest.should_receive(:notify).with("Build Broken")
+      @autotest.run(@class)
+    end
+
+    it "should notify user when all test green" do
+      @autotest.test_runner.stub!(:run_test).and_return true
+      @autotest.test_runner.should_receive(:run_all_tests).and_return true
+      @autotest.should_receive(:notify).with("Build Passed")
+      @autotest.run(@class)
+    end
 
   end
 
@@ -52,6 +66,14 @@ describe AutoTest do
   end
 
   context "notify" do
+    before(:all) do
+      @current_platform = RUBY_PLATFORM 
+    end
+    
+    after(:all) do
+      RUBY_PLATFORM = @current_platform
+    end
+    
     it "on linux" do
       RUBY_PLATFORM = "linux"
       message = "hello linux"

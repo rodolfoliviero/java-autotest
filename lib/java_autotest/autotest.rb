@@ -24,8 +24,13 @@ class AutoTest
     test_class = find_test_class file
     puts "Running test to #{test_class}."
     green = @test_runner.run_test(test_class)
-    @test_runner.run_all_tests if green
-    notify "Test Failure: #{test_class}" unless green
+    if green
+      all_test_green = @test_runner.run_all_tests
+      notify "Build Passed" if all_test_green
+      notify "Build Broken" unless all_test_green 
+    else
+      notify "Test Failure: #{test_class}"
+    end
     reset 
   end
 
