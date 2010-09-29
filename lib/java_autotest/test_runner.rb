@@ -12,19 +12,19 @@ class TestRunner
   end
 
   def discover_build_tool
-    "mvn"
-    #"gradle" if File.exists?("build.gradle")
+    File.exists?("build.gradle") ? "gradle" : "mvn" 
   end
 
   def run_test(test_class)
-    green = system("#{@build_tool} -Dtest=#{test_class} test")
+    command = ".single" if @build_tool == "gradle"
+    green = system("#{@build_tool} -Dtest#{command}=#{test_class} test")
     notify "Test Failure: #{test_class}" unless green
     green
   end
 
   def run_all_tests
     green = system("#{@build_tool} test")
-    notify "Build Passed" if green
+    notify "Build Success" if green
     notify "Build Broken" unless green 
   end
 

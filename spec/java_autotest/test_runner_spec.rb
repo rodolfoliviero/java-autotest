@@ -26,7 +26,7 @@ describe TestRunner do
 
     it "should notify user when all build pass" do
       @test_runner.stub!(:system).and_return true
-      @test_runner.should_receive(:notify).with("Build Passed")
+      @test_runner.should_receive(:notify).with("Build Success")
       @test_runner.run_all_tests
     end
 
@@ -36,10 +36,12 @@ describe TestRunner do
       @test_runner.run_all_tests
     end
 
-    xit "should run all tests to gradle" do
+    it "should run all tests to gradle" do
+      File.stub(:exists?).with("build.gradle").and_return true
       test_runner = TestRunner.new
+      test_runner.stub!(:notify)
       test_runner.should_receive(:system).with("gradle test").and_return true
-      test_runner.run_all_tests.should be_true
+      test_runner.run_all_tests
     end
   end 
 
@@ -67,8 +69,12 @@ describe TestRunner do
       @test_runner.run_test(@test_class).should be_true
     end
 
-    xit "should run gradle single test" do
-      TestRunner.new.single_test_command("").should == "gradle -Dtest.single=#{@test_class} test"
+    it "should run gradle single test" do
+      File.stub(:exists?).with("build.gradle").and_return true
+      test_runner = TestRunner.new
+      command = "gradle -Dtest.single=#{@test_class} test"
+      test_runner.should_receive(:system).with(command).and_return true
+      test_runner.run_test(@test_class).should be_true
     end
   end
 

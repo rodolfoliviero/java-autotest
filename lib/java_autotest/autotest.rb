@@ -2,10 +2,10 @@ class AutoTest
   attr_accessor :run_at, :files, :test_runner
 
   def initialize
-    @run_at = Time.new
     @files = File.find_java_files
     @test_runner = TestRunner.new
     @test_runner.run_all_tests
+    @run_at = Time.new
   end	
 
   def listen

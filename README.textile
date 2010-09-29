@@ -11,7 +11,7 @@ h2. Dependencies
 Ensures that you already have installed:
 
 * Java 
-* Maven 2
+* Maven 2 or Gradle
 
 h2. On OS X:
 
