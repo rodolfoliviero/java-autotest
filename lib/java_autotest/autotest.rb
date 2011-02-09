@@ -9,6 +9,7 @@ class AutoTest
   end	
 
   def listen
+    @files = File.find_java_files
     @files.each do |file|
       if (File.atime(file).to_i > @run_at.to_i)
         run(file) 
